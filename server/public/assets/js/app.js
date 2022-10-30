@@ -1,3 +1,4 @@
+/*
 function update_element(endpoint) {
     return axios
             .get(HOST + endpoint)
@@ -119,8 +120,21 @@ const ContactsApp = {
         }
     },
     mounted () {
-        update_element("/contacts").
-            then(response => (this.contacts = response.data));
+    }
+}
+*/
+
+const ContactsApp = {
+    data() {
+        return { 
+        }
+    },
+    components: 
+    {
+    },
+    methods: {
+    },
+    mounted () {
     }
 }
 
