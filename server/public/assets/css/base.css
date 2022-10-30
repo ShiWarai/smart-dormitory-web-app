@@ -1,0 +1,29 @@
+:root {
+  --sd-back: #101010;
+  --sd-primary: #625EFF;
+  --sd-second: #282828;
+  --sd-text-primary: #F2F2F2;
+  --sd-btn-primary: #625EFF;
+  --sd-btn-danger: #CC2828;
+}
+
+body * {
+  color: var(--sd-text-primary);
+  font-family: roboto;
+}
+
+body .btn-primary {
+  --bs-btn-bg: var(--sd-btn-primary);
+  --bs-btn-hover-bg: var(--sd-btn-primary);
+  --bs-btn-active-bg: var(--sd-btn-primary);
+}
+
+body .btn-danger {
+  background: var(--sd-btn-danger);
+}
+
+#app {
+  height: 100%;
+  padding: 16px;
+}
+

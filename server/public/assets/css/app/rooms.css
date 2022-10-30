@@ -1,0 +1,13 @@
+.rooms {
+  overflow-y: auto;
+  background: var(--sd-second);
+}
+
+.rooms li {
+  background: var(--sd-second);
+}
+
+#rooms-page {
+  width: 90%;
+}
+

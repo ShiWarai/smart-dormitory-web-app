@@ -4,16 +4,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>smart-dormitory</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <title>Smart Dormitory</title>
+    <meta name="description" content="Умный дом в вашем общежитии">
+    <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/app/rooms.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 <script>const HOST = "http://<%- HOSTNAME %>:<%- PORT %>"</script>
 </head>
 
-<body class="d-flex flex-column justify-content-start" id="app" style="height: 100vh;min-height: 100vh;max-height: 100vh;">
-    <h1 style="text-align: center;">Test</h1>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<body class="d-flex flex-column justify-content-start" id="body" style="height: 100vh;min-height: 100vh;max-height: 100vh;background: var(--sd-second);">
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+        <div class="container"><a class="navbar-brand d-flex flex-grow-1 align-items-center" href="#"><img src="assets/img/icon.svg" width="32" height="32"><span style="color: var(--sd-text-primary);font-weight: bold;font-size: 22px;">Умное общежитие</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-5">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Комнаты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Жители</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="d-flex justify-content-around" id="app">
+        <div id="rooms-page">
+            <!-- Start: rooms-list --><rooms-component v-bind:rooms="rooms">
+</rooms-component><!-- End: rooms-list -->
+            <div class="btn-group btn-group-lg d-flex justify-content-around" role="group" style="margin: 10px;"><button class="btn btn-primary d-flex flex-grow-0" type="button" v-on:click="update_rooms" style="border-radius: 8px;">Обновить</button><button class="btn btn-danger disabled d-flex flex-grow-0" type="button" v-on:click="" style="border-radius: 8px;" disabled="">Удалить всё</button></div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 

@@ -18,5 +18,5 @@ app.get('/', function(req, res) {
    res.render(path.join(__dirname, '../public/index'), {HOSTNAME: HOSTNAME, PORT: PORT});
  });
 
-app.listen(PORT);
+app.listen(80);
 console.log("Server is start!");
