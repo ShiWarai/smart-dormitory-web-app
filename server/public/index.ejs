@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+<script>const HOST = "http://<%- HOSTNAME %>:<%- PORT %>"</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ИПП 5</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="d-flex flex-column justify-content-start" id="app" style="height: 100vh;min-height: 100vh;max-height: 100vh;">
+    <div class="carousel slide carousel-dark d-flex flex-grow-1" data-bs-ride="false" data-bs-keyboard="false" id="carousel-pages" style="padding-top: 26px;height: 100%;padding-bottom: 26px;">
+        <div class="carousel-inner" style="height: 100%;">
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="text-center">Поиск</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mx-auto">
+                            <div class="row" style="padding: 12px 0px;">
+                                <div class="col">
+                                    <div class="input-group"><span class="input-group-text">ID контакта</span><input class="form-control" type="text" v-model="search_id" inputmode="numeric"><button class="btn btn-primary" type="button" v-on:click="update_search">Найти</button></div>
+                                </div>
+                            </div>
+                            <div class="row" style="padding: 12px 0px;">
+                                <div class="col" v-if="found_contact"><ul class="list-group">
+    <div class="card mb-5">
+        <div class="card-body p-sm-5">
+            <contact-form-component v-model:contact="found_contact" v-bind:editable="true" v-bind:senadble="false">
+            </contact-form-component>
+            <div class="d-flex" style="margin-top: 16px">
+                <button class="btn btn-secondary btn-lg mx-auto" type="button" v-on:click="update_found_contact()">Изменить</button>
+                <button class="btn btn-danger btn-lg mx-auto" type="button" v-on:click="delete_found_contact()">Удалить</button>
+            </div>
+        </div>
+    </div>
+</ul></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="text-center">Новый контакт</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mx-auto contacts"><div class="card mb-5">
+    <div class="card-body p-sm-5">
+        <contact-form-component v-bind:contact="null" v-bind:editable="true" v-bind:senadble="true">
+        </contact-form-component>
+    </div>
+</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item contacts-slide" style="height: 100%;">
+                <div class="container" style="max-height: 100%;height: 100%;min-height: 100%;">
+                    <div class="row" style="height: 10%;">
+                        <div class="col">
+                            <h1 class="text-center">Список контактов</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="height: 90%;">
+                        <div class="col-12 col-md-6 d-flex flex-column mx-auto" style="height: 100%;"><contacts-component v-bind:contacts="contacts">
+</contacts-component>
+                            <div class="btn-group btn-group-lg d-flex justify-content-around" role="group" style="margin: 10px;"><button class="btn btn-primary d-flex flex-grow-0" type="button" v-on:click="update_list">Обновить</button><button class="btn btn-danger d-flex flex-grow-0" type="button" v-on:click="clear_list">Удалить всё</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div><a class="carousel-control-prev" href="#carousel-pages" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-pages" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

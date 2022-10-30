@@ -1,0 +1,8 @@
+.contacts {
+  overflow-y: auto;
+}
+
+.contacts-slide .active {
+  display: flex;
+}
+

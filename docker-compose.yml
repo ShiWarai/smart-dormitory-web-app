@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  db:
+    image: mongo
+    container_name: contacts_db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+  server:
+    build: ./server
+    container_name: contacts_server
+    working_dir: /app/backend
+    restart: always
+    entrypoint: node server.js hostname=${HOST} port=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
+    links:
+      - db
