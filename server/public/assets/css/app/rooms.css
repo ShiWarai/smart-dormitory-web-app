@@ -1,4 +1,5 @@
 .rooms {
+  height: 100%;
   overflow-y: auto;
   background: var(--sd-second);
 }
@@ -9,5 +10,6 @@
 
 #rooms-page {
   width: 90%;
+  height: 100%;
 }
 
