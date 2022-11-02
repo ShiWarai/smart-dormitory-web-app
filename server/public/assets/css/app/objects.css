@@ -2,6 +2,7 @@
   height: 100%;
   overflow-y: auto;
   background: var(--sd-second);
+  padding-right: 8px;
 }
 
 .objects li {
