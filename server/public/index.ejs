@@ -11,11 +11,12 @@
     <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
     <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
     <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/app/login.css">
     <link rel="stylesheet" href="assets/css/app/objects.css">
     <link rel="stylesheet" href="assets/css/app/reports.css">
     <link rel="stylesheet" href="assets/css/app/residents.css">
+    <link rel="stylesheet" href="assets/css/app/room.css">
     <link rel="stylesheet" href="assets/css/app/rooms.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
@@ -51,26 +52,21 @@
                 </div>
             </div>
         </div>
-        <div id="objects-page" v-if="currentPage=='objects'">
-            <!-- Start: objects-list --><objects-component/><!-- End: objects-list -->
-        </div>
-        <div id="reports-page" v-if="currentPage=='reports'">
-            <!-- Start: reports-list --><reports-component/><!-- End: reports-list -->
-        </div>
         <div id="rooms-page" v-if="currentPage=='rooms'">
             <!-- Start: rooms-list --><rooms-component/><!-- End: rooms-list -->
         </div>
-        <div id="residents-page" v-if="currentPage=='residents'">
-            <!-- Start: rooms-list --><residents-component/><!-- End: rooms-list -->
+        <div class="d-flex flex-column align-items-center" id="room-page" v-if="currentPage=='room'">
+            <h1 class="text-center">Комната</h1><!-- Start: view-room --><room-component v-bind:room="currentRoom"/><!-- End: view-room -->
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/api.mjs" type="module"></script>
     <script src="assets/js/app.mjs" type="module"></script>
     <script src="assets/js/components/objects.mjs" type="module"></script>
     <script src="assets/js/components/reports.mjs" type="module"></script>
     <script src="assets/js/components/residents.mjs" type="module"></script>
+    <script src="assets/js/components/room.mjs" type="module"></script>
     <script src="assets/js/components/rooms.mjs" type="module"></script>
 </body>
 

@@ -1,0 +1,12 @@
+.room {
+  height: 100%;
+  overflow-y: auto;
+  background: var(--sd-second);
+  padding-right: 8px;
+}
+
+#room-page {
+  width: 90%;
+  height: 100%;
+}
+

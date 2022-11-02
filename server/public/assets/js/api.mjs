@@ -31,3 +31,7 @@ export function fetch(endpoint, withOptions = true) {
 export function set(endpoint, body) {
     return axios.put(HOST + endpoint, body, options)
 }
+
+export function create(endpoint, body) {
+    return axios.post(HOST + endpoint, body, options)
+}

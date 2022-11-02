@@ -21,6 +21,13 @@ body .btn-primary {
   --bs-btn-border-color: var(--sd-btn-primary);
 }
 
+body .btn-secondary {
+  --bs-btn-bg: var(--bs-gray-600);
+  --bs-btn-hover-bg: var(--bs-gray-600);
+  --bs-btn-active-bg: var(--bs-gray-600);
+  --bs-btn-border-color: var(--bs-gray-600);
+}
+
 body .btn-danger {
   background: var(--sd-btn-danger);
 }

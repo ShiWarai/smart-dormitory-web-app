@@ -1,5 +1,6 @@
 import {fetch, set, options} from './api.mjs'
 import {RoomsComponent} from './components/rooms.mjs'
+import {RoomComponent} from './components/room.mjs'
 import {ObjectsComponent} from './components/objects.mjs'
 import {ReportsComponent} from './components/reports.mjs'
 import {ResidentsComponent} from './components/residents.mjs'
@@ -9,11 +10,12 @@ const SmartDormitoryApp = {
         return { 
             currentPage: 'login',
             user: {
-                studentId: null,
-                password: null,
+                studentId: "1234567",
+                password: "1111",
             },
             authorized: false,
-            login_error: null
+            login_error: null,
+            currentRoom: null,
         }
     },
     methods: {
@@ -29,7 +31,7 @@ const SmartDormitoryApp = {
                 this.user = response.data;
                 this.authorized = true;
                 
-                this.changeWindow('login', 'objects');
+                this.changeWindow('login', 'rooms');
             } else {
                 this.authorized = false;
                 
@@ -57,6 +59,15 @@ const SmartDormitoryApp = {
                 this.login_error = "Не авторизован";
                 this.currentPage = 'login';
             }
+        },
+        showRoom(status, room) {
+            switch(status) {
+                case 'new':
+                    this.currentRoom = {id: null, name: null};
+                    break;
+            }
+            
+            this.changeWindow(this.currentPage, 'room');
         }
     },
     mounted () {
@@ -68,6 +79,7 @@ const SmartDormitoryApp = {
     components: 
     {
         RoomsComponent,
+        RoomComponent,
         ObjectsComponent,
         ResidentsComponent,
         ReportsComponent
