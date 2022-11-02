@@ -28,10 +28,17 @@ const SmartDormitoryApp = {
             
             if (response.status == 200) 
             {
-                this.user = response.data;
-                this.authorized = true;
+                if(response.data.roleId == 0){
+                    this.user = response.data;
+                    this.authorized = true;
                 
-                this.changeWindow('login', 'rooms');
+                    this.changeWindow('login', 'rooms');
+                } else {
+                    this.authorized = false;
+
+                    this.changeWindow('login', 'login');
+                    this.login_error = "Нет доступа";
+                }
             } else {
                 this.authorized = false;
                 
