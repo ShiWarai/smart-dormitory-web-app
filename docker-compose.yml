@@ -1,11 +1,11 @@
 version: "2"
 
 services:
-  server:
+  web-pages-server:
     build: ./server
     container_name: smart_dormitory_web_app
     working_dir: /app/backend
     restart: always
     entrypoint: node server.js hostname=${HOST} port=${PORT}
     ports:
-      - "${PORT}:${PORT}"
+      - "80:80"

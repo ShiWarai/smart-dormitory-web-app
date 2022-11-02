@@ -1,0 +1,37 @@
+.objects {
+  height: 100%;
+  overflow-y: auto;
+  background: var(--sd-second);
+  padding-right: 8px;
+}
+
+.objects li {
+  background: var(--sd-second);
+}
+
+#objects-page {
+  width: 90%;
+  height: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tag-label, input[type="radio"], label {
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--sd-primary);
+  border-color: var(--sd-primary);
+}
+
+.form-check-input:focus {
+  border-color: var(--sd-second);
+  outline: 0;
+  box-shadow: 0 0 0 .25rem var(--sd-second);
+}
+

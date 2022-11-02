@@ -1,0 +1,53 @@
+:root {
+  --sd-back: #101010;
+  --sd-primary: #625EFF;
+  --sd-second: #282828;
+  --sd-text-primary: #F2F2F2;
+  --sd-btn-primary: #625EFF;
+  --sd-btn-danger: #CC2828;
+  --sd-scr-background: #1f1e1e;
+  --sd-scr-primary: var(--sd-primary);
+}
+
+body * {
+  color: var(--sd-text-primary);
+  font-family: roboto;
+}
+
+body .btn-primary {
+  --bs-btn-bg: var(--sd-btn-primary);
+  --bs-btn-hover-bg: var(--sd-btn-primary);
+  --bs-btn-active-bg: var(--sd-btn-primary);
+  --bs-btn-border-color: var(--sd-btn-primary);
+}
+
+body .btn-secondary {
+  --bs-btn-bg: var(--bs-gray-600);
+  --bs-btn-hover-bg: var(--bs-gray-600);
+  --bs-btn-active-bg: var(--bs-gray-600);
+  --bs-btn-border-color: var(--bs-gray-600);
+}
+
+body .btn-danger {
+  background: var(--sd-btn-danger);
+}
+
+#app {
+  height: 80%;
+  padding: 16px;
+}
+
+::-webkit-scrollbar {
+  /*width: 30px;*/
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--sd-scr-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--sd-scr-primary);
+  border-radius: 12px;
+}
+
