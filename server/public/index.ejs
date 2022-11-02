@@ -52,11 +52,20 @@
                 </div>
             </div>
         </div>
+        <div id="objects-page" v-if="currentPage=='objects'">
+            <!-- Start: objects-list --><objects-component/><!-- End: objects-list -->
+        </div>
+        <div id="reports-page" v-if="currentPage=='reports'">
+            <!-- Start: reports-list --><reports-component/><!-- End: reports-list -->
+        </div>
         <div id="rooms-page" v-if="currentPage=='rooms'">
             <!-- Start: rooms-list --><rooms-component/><!-- End: rooms-list -->
         </div>
         <div class="d-flex flex-column align-items-center" id="room-page" v-if="currentPage=='room'">
             <h1 class="text-center">Комната</h1><!-- Start: view-room --><room-component v-bind:room="currentRoom"/><!-- End: view-room -->
+        </div>
+        <div id="residents-page" v-if="currentPage=='residents'">
+            <!-- Start: rooms-list --><residents-component/><!-- End: rooms-list -->
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
