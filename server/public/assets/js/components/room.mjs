@@ -17,11 +17,11 @@ export const RoomComponent = {
             const response = await create("/rooms/", this.room);
             if(response.status == 201)
             {
-                alert("CREATED!");
+                alert("Создана!");
                 this.$parent.changeWindow('room', 'rooms');
             }
             else
-                alert("ERROR!");
+                alert("Ошибка");
         }
     },
     mounted () {

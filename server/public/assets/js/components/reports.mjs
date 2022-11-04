@@ -18,11 +18,11 @@ export const ReportComponent = {
             const response = await remove("/reports/" + this.report.id);
             
             if(response.status == 200) {
-                alert("DELETED!");
+                alert("Репорт удалён!");
                 this.$parent.update_reports();
             }
             else
-                alert("ERROR");
+                alert("Ошибка");
         },
         update_resident(event) {
             fetch("/residents/by_id/" + this.report.residentId).
