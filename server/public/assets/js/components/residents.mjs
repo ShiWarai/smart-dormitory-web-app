@@ -1,4 +1,4 @@
-import {fetch, set} from '../api.mjs'
+import {fetch, set, remove} from '../api.mjs'
 
 export const ResidentComponent = {
     props: ['resident'],
@@ -22,6 +22,16 @@ export const ResidentComponent = {
         }
     },
     methods: {
+        async remove_resident(event) {
+            const response = await remove("/residents/" + this.resident.studentId);
+            
+            if(response.status == 200) {
+                alert("Житель удалён удалён!");
+                this.$parent.update_residents();
+            }
+            else
+                alert("Ошибка");
+        },
         update_room(event) {
             fetch("/rooms/" + this.resident.roomId).
                 then(response => (this.roomName = response.data.name));
@@ -32,9 +42,16 @@ export const ResidentComponent = {
     },
     template:
     `<li class="list-group-item d-flex flex-column">
-        <h4>{{resident.fio}}</h4>
-        <span>Роль: {{this.roleName}}</span>
-        <span>Комната: {{this.roomName}}</span>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
+                    <h4 style="margin: 0px;">{{resident.fio}}</h4><button class="btn btn-danger btn-delete d-flex flex-grow-0" style="margin-left: 8px;" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_resident">X</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex flex-column"><span>Роль: {{this.roleName}}</span><span>Комната: {{this.roomName}}</span></div>
+            </div>
+        </div>
     </li>`
 }
 
