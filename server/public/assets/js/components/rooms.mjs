@@ -1,4 +1,4 @@
-import {fetch, set} from '../api.mjs'
+import {fetch, set, remove} from '../api.mjs'
 
 export const RoomElementComponent = {
     props: ['room'],
@@ -10,6 +10,20 @@ export const RoomElementComponent = {
         }
     },
     methods: {
+        async remove_room(event) {
+            if(this.residents.length == 0 && this.objects.length == 0) {
+                const response = await remove("/rooms/" + this.room.id);
+
+                if(response.status == 200) {
+                    alert("Комната удалена!");
+                    this.$parent.update_rooms();
+                }
+                else
+                    alert("Ошибка");
+            } else {
+                alert("Вы не можете удалить данную комнату - в ней есть сущности");
+            }
+        },
         update_residents(event) {
             fetch("/residents/by?room_id=" + this.room.id).
                 then(response => (this.residents = response.data));
@@ -30,10 +44,21 @@ export const RoomElementComponent = {
     },
     template:
     `<li class="list-group-item d-flex flex-column">
-        <h4>{{room.name}}</h4>
-        <span style="margin: 3px 0px;">Тип: {{this.typeName}}</span>
-        <span style="margin: 3px 0px;">Жители: <span v-for="(resident,index) in this.residents">{{resident.fio}}<span v-if="index != (this.residents.length - 1)">, </span></span></span>
-        <span style="margin: 3px 0px;">Объекты: <span v-for="(object,index) in this.objects">{{object.name}}<span v-if="index != (this.objects.length - 1)">, </span></span></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex flex-row justify-content-between">
+                <h4>{{room.name}}</h4>
+                <button class="btn btn-danger btn-delete d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_room">X</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex flex-column">
+                <span style="margin: 3px 0px;">Тип: {{this.typeName}}</span>
+                <span style="margin: 3px 0px;">Жители: <span v-for="(resident,index) in this.residents">{{resident.fio}}<span v-if="index != (this.residents.length - 1)">, </span></span></span>
+                <span style="margin: 3px 0px;">Объекты: <span v-for="(object,index) in this.objects">{{object.name}}<span v-if="index != (this.objects.length - 1)">, </span></span></span>
+            </div>
+        </div>
+    </div>
     </li>`
 }
 
