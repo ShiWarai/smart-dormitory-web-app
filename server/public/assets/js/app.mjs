@@ -10,8 +10,8 @@ const SmartDormitoryApp = {
         return { 
             currentPage: 'login',
             user: {
-                studentId: "1234567",
-                password: "1111",
+                studentId: null,
+                password: null,
             },
             authorized: false,
             login_error: null,

@@ -25,7 +25,8 @@ export const RoomComponent = {
         this.update_types();
     },
     template:
-    `<div style="min-width: 400px;">
+    `<h1 class="text-center">Комната</h1>
+    <div style="min-width: 400px;">
         <form method="post">
             <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Имя комнаты (номер)" v-model="room.name"/></div>
             <div class="mb-3"><select class="form-select" name="typeId" v-model="room.typeId">

@@ -62,7 +62,7 @@
             <!-- Start: rooms-list --><rooms-component/><!-- End: rooms-list -->
         </div>
         <div class="d-flex flex-column align-items-center" id="room-page" v-if="currentPage=='room'">
-            <h1 class="text-center">Комната</h1><!-- Start: view-room --><room-component v-bind:room="currentRoom"/><!-- End: view-room -->
+            <!-- Start: view-room --><room-component v-bind:room="currentRoom"/><!-- End: view-room -->
         </div>
         <div id="residents-page" v-if="currentPage=='residents'">
             <!-- Start: rooms-list --><residents-component/><!-- End: rooms-list -->

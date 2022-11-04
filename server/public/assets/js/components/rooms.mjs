@@ -5,6 +5,7 @@ export const RoomElementComponent = {
     data() {
         return { 
             residents: [],
+            objects: [],
             typeName: null
         }
     },
@@ -12,6 +13,10 @@ export const RoomElementComponent = {
         update_residents(event) {
             fetch("/residents/by?room_id=" + this.room.id).
                 then(response => (this.residents = response.data));
+        },
+        update_objects(event) {
+            fetch("/objects/by?room_id=" + this.room.id).
+                then(response => {this.objects = response.data; console.log(this.objects)});
         },
         update_type(event) {
             fetch("/room_types/" + this.room.typeId).
@@ -21,12 +26,14 @@ export const RoomElementComponent = {
     mounted () {
         this.update_residents();
         this.update_type();
+        this.update_objects();
     },
     template:
     `<li class="list-group-item d-flex flex-column">
         <h4>{{room.name}}</h4>
         <span style="margin: 3px 0px;">Тип: {{this.typeName}}</span>
-        <span style="margin: 3px 0px;">Жители: <span v-for="(resident,index) in this.residents">{{resident.fio}}<span v-if="index != (residents.length - 1)">, </span></span></span>
+        <span style="margin: 3px 0px;">Жители: <span v-for="(resident,index) in this.residents">{{resident.fio}}<span v-if="index != (this.residents.length - 1)">, </span></span></span>
+        <span style="margin: 3px 0px;">Объекты: <span v-for="(object,index) in this.objects">{{object.name}}<span v-if="index != (this.objects.length - 1)">, </span></span></span>
     </li>`
 }
 
