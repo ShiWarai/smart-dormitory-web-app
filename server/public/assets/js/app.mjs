@@ -32,7 +32,7 @@ const SmartDormitoryApp = {
                     this.user = response.data;
                     this.authorized = true;
                 
-                    this.changeWindow('login', 'rooms');
+                    this.changeWindow('login', 'objects');
                 } else {
                     this.authorized = false;
 
@@ -70,7 +70,7 @@ const SmartDormitoryApp = {
         showRoom(status, room) {
             switch(status) {
                 case 'new':
-                    this.currentRoom = {id: null, name: null};
+                    this.currentRoom = {id: null, name: null, typeId: null, position: "{}"};
                     break;
             }
             

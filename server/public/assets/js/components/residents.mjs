@@ -3,7 +3,8 @@ import {fetch, set} from '../api.mjs'
 export const ResidentComponent = {
     props: ['resident'],
     data() {
-        return { 
+        return {
+            roomName: null,
         }
     },
     computed: {
@@ -21,16 +22,19 @@ export const ResidentComponent = {
         }
     },
     methods: {
-        update_role(event) {
+        update_room(event) {
+            fetch("/rooms/" + this.resident.roomId).
+                then(response => (this.roomName = response.data.name));
         }
     },
     mounted () {
-        this.update_role();
+        this.update_room();
     },
     template:
     `<li class="list-group-item d-flex flex-column">
         <h4>{{resident.fio}}</h4>
         <span>Роль: {{this.roleName}}</span>
+        <span>Комната: {{this.roomName}}</span>
     </li>`
 }
 

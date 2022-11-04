@@ -16,7 +16,10 @@ export const RoomComponent = {
             console.log(this.room);
             const response = await create("/rooms/", this.room);
             if(response.status == 201)
+            {
                 alert("CREATED!");
+                this.$parent.changeWindow('room', 'rooms');
+            }
             else
                 alert("ERROR!");
         }

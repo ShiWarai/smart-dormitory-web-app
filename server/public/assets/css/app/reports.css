@@ -26,3 +26,22 @@
   height: 100%;
 }
 
+#reports-page .form-switch {
+  padding: 0px !important;
+}
+
+#reports-page .form-check-input {
+  width: 48px !important;
+  height: 24px !important;
+  margin: 0px !important;
+  margin-left: 8px !important;
+}
+
+#reports-page .btn-delete {
+  border-radius: 5px;
+  height: 100%;
+  font-size: 10px;
+  --bs-btn-padding-x: 0.495rem;
+  --bs-btn-padding-y: 0.1675rem;
+}
+
