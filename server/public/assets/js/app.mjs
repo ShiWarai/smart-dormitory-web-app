@@ -17,7 +17,7 @@ const SmartDormitoryApp = {
             authorized: false,
             login_error: null,
             currentRoom: null,
-            currentResident: null,
+            currentResident: {mode: null},
         }
     },
     methods: {
@@ -71,20 +71,24 @@ const SmartDormitoryApp = {
         },
         showRoom(status, room) {
             switch(status) {
-                case 'new':
+                case 'create':
                     this.currentRoom = {id: null, name: null, typeId: null, position: "{}"};
                     break;
             }
             
             this.changeWindow(this.currentPage, 'room');
         },
-        showResident(status, resident) {
-            switch(status) {
-                case 'new':
+        showResident(mode, resident) {
+            switch(mode) {
+                case 'create':
                     this.currentResident = {id: null, fio: null, birthdate: null, roleId: null, roomId: null, studentId: null, password: null};
                     break;
+                case 'edit':
+                    this.currentResident = resident;
+                    break
             }
             
+            this.currentResident.mode = mode;
             this.changeWindow(this.currentPage, 'resident');
         }
     },
