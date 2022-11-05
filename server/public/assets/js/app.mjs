@@ -2,20 +2,24 @@ import {fetch, set, options} from './api.mjs'
 import {RoomsComponent} from './components/rooms.mjs'
 import {RoomComponent} from './components/room.mjs'
 import {ObjectsComponent} from './components/objects.mjs'
+import {ObjectComponent} from './components/object.mjs'
 import {ReportsComponent} from './components/reports.mjs'
 import {ResidentsComponent} from './components/residents.mjs'
+import {ResidentComponent} from './components/resident.mjs'
 
 const SmartDormitoryApp = {
     data() {
         return { 
             currentPage: 'login',
             user: {
-                studentId: "1234567",
-                password: "1111",
+                studentId: null,
+                password: null,
             },
             authorized: false,
             login_error: null,
             currentRoom: null,
+            currentResident: {mode: null},
+            currentObject: {mode: null}
         }
     },
     methods: {
@@ -32,7 +36,7 @@ const SmartDormitoryApp = {
                     this.user = response.data;
                     this.authorized = true;
                 
-                    this.changeWindow('login', 'rooms');
+                    this.changeWindow('login', 'objects');
                 } else {
                     this.authorized = false;
 
@@ -69,12 +73,38 @@ const SmartDormitoryApp = {
         },
         showRoom(status, room) {
             switch(status) {
-                case 'new':
-                    this.currentRoom = {id: null, name: null};
+                case 'create':
+                    this.currentRoom = {id: null, name: null, typeId: null, position: "{}"};
                     break;
             }
             
             this.changeWindow(this.currentPage, 'room');
+        },
+        showResident(mode, resident) {
+            switch(mode) {
+                case 'create':
+                    this.currentResident = {id: null, fio: null, birthdate: null, roleId: null, roomId: null, studentId: null, password: null};
+                    break;
+                case 'edit':
+                    this.currentResident = resident;
+                    break
+            }
+            
+            this.currentResident.mode = mode;
+            this.changeWindow(this.currentPage, 'resident');
+        },
+        showObject(mode, object) {
+            switch(mode) {
+                case 'create':
+                    this.currentObject = {id: null, name: null, description: null, typeId: null, roomId: null, cloudId: null, statusId: null};
+                    break;
+                case 'edit':
+                    this.currentObject = object;
+                    break
+            }
+            
+            this.currentObject.mode = mode;
+            this.changeWindow(this.currentPage, 'object');
         }
     },
     mounted () {
@@ -88,7 +118,9 @@ const SmartDormitoryApp = {
         RoomsComponent,
         RoomComponent,
         ObjectsComponent,
+        ObjectComponent,
         ResidentsComponent,
+        ResidentComponent,
         ReportsComponent
     }
 }
