@@ -4,18 +4,20 @@ import {RoomComponent} from './components/room.mjs'
 import {ObjectsComponent} from './components/objects.mjs'
 import {ReportsComponent} from './components/reports.mjs'
 import {ResidentsComponent} from './components/residents.mjs'
+import {ResidentComponent} from './components/resident.mjs'
 
 const SmartDormitoryApp = {
     data() {
         return { 
             currentPage: 'login',
             user: {
-                studentId: null,
-                password: null,
+                studentId: "1234567",
+                password: "1111",
             },
             authorized: false,
             login_error: null,
             currentRoom: null,
+            currentResident: null,
         }
     },
     methods: {
@@ -32,7 +34,7 @@ const SmartDormitoryApp = {
                     this.user = response.data;
                     this.authorized = true;
                 
-                    this.changeWindow('login', 'objects');
+                    this.changeWindow('login', 'residents');
                 } else {
                     this.authorized = false;
 
@@ -75,6 +77,15 @@ const SmartDormitoryApp = {
             }
             
             this.changeWindow(this.currentPage, 'room');
+        },
+        showResident(status, resident) {
+            switch(status) {
+                case 'new':
+                    this.currentResident = {id: null, fio: null, birthdate: null, roleId: null, roomId: null, studentId: null, password: null};
+                    break;
+            }
+            
+            this.changeWindow(this.currentPage, 'resident');
         }
     },
     mounted () {
@@ -89,6 +100,7 @@ const SmartDormitoryApp = {
         RoomComponent,
         ObjectsComponent,
         ResidentsComponent,
+        ResidentComponent,
         ReportsComponent
     }
 }
