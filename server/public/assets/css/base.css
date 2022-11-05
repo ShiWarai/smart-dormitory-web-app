@@ -14,6 +14,10 @@ body * {
   font-family: roboto;
 }
 
+.form-heading {
+  margin-bottom: 16px;
+}
+
 body .btn-primary {
   --bs-btn-bg: var(--sd-btn-primary);
   --bs-btn-hover-bg: var(--sd-btn-primary);
