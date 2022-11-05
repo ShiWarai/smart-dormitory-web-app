@@ -58,7 +58,10 @@ export const ObjectComponent = {
             <span style="margin: 3px 0px;">Статус: {{this.statusName}}</span>
         </div>
     </div>
-    <div class="d-flex align-items-center form-check form-switch"><input class="form-check-input" type="checkbox" style="width: 48px;height: 24px;margin: 0px;" :name="object.id" v-model="this.status" v-on:change="change_status"/></div>
+        <div class="d-flex align-items-center form-check form-switch my-auto">
+            <input class="form-check-input" type="checkbox" style="width: 48px;height: 24px;margin: 0px;" :name="object.id" v-model="this.status" v-on:change="change_status"/>
+            <button class="btn btn-danger btn-delete d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_room">X</button>
+        </div>
     </li>`
 }
 
