@@ -69,7 +69,7 @@ export const ObjectComponent = {
                     <h4>{{object.name}}</h4>
                     <div class="d-flex align-items-center my-auto form-check form-switch" style="padding: 0px;">
                         <input class="form-check-input" type="checkbox" style="width: 48px;height: 24px;margin: 0px;" name="{{id}}" v-model="this.status" v-on:change="change_status"/>
-                        <button class="btn btn-primary btn-edit d-flex flex-grow-0" type="button" v-on:click="edit_object"><img src="edit.svg" width="24" height="24" style="filter: invert(100%);" /></button>
+                        <button class="btn btn-primary btn-edit d-flex flex-grow-0" type="button" v-on:click="edit_object"><img src="assets/img/edit.svg" width="24" height="24" style="filter: invert(100%);" /></button>
                         <button class="btn btn-danger d-flex flex-grow-0 btn-delete" type="button" v-on:click="remove_object">X</button>
                     </div>
                 </div>
