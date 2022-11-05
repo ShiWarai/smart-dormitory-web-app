@@ -44,7 +44,7 @@ export const ReportComponent = {
     },
     template:
     `<li class="list-group-item d-flex flex-column">
-        <div class="container">
+        <div>
             <div class="row d-flex flex-row justify-content-between align-items-start">
                 <div class="col-auto col-md-6 flex-grow-1">
                     <div>
@@ -54,7 +54,7 @@ export const ReportComponent = {
                 </div>
                 <div class="col-md-6" style="width: auto;">
                     <h5>Сообщил: {{resident.fio}}</h5>
-                    <div class="d-flex align-items-center form-check form-switch">Устранена: <input class="form-check-input" type="checkbox" v-model="report.isDone" v-on:change="change_status"/>
+                    <div class="d-flex form-check form-switch">Устранена: <input class="form-check-input" type="checkbox" v-model="report.isDone" v-on:change="change_status"/>
                     <button class="btn btn-danger btn-delete d-flex flex-grow-0" style="margin-left: 8px" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_report">X</button>
                     </div>
                 </div>

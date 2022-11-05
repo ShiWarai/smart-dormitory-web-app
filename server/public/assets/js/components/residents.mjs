@@ -45,12 +45,12 @@ export const ResidentComponent = {
     },
     template:
     `<li class="list-group-item d-flex flex-column">
-        <div class="container">
+        <div>
             <div class="row">
                 <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
                     <h4 style="margin: 0px;">{{resident.fio}}</h4>
                     <div class="d-flex flex-row">
-                        <button class="btn btn-primary btn-edit d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="edit_resident"><img src="edit.svg" width="24" height="24" style="filter: invert(100%);" /></button>
+                        <button class="btn btn-primary btn-edit d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="edit_resident"><img src="assets/img/edit.svg" width="24" height="24" style="filter: invert(100%);" /></button>
                         <button class="btn btn-danger btn-delete d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_resident">X</button>
                     </div>
                 </div>

@@ -44,7 +44,7 @@ export const RoomElementComponent = {
     },
     template:
     `<li class="list-group-item d-flex flex-column">
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-md-12 d-flex flex-row justify-content-between">
                 <h4>{{room.name}}</h4>

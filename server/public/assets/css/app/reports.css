@@ -28,6 +28,16 @@
 
 #reports-page .form-switch {
   padding: 0px !important;
+  justify-content: right !important;
+  align-items: center !important;
+}
+
+@media (max-width: 992px) {
+  #reports-page .form-switch {
+    padding: 0px !important;
+    justify-content: left !important;
+    align-items: center !important;
+  }
 }
 
 #reports-page .form-check-input {
