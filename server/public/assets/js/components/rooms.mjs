@@ -78,7 +78,7 @@ export const RoomsComponent = {
                 then(response => (this.rooms = response.data));
         },
         create_room(event) {
-            this.$parent.showRoom('create');
+            this.$parent.showRoom('new');
         }
     },
     mounted () {

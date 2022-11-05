@@ -12,7 +12,6 @@
     <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
     <link rel="icon" type="image/svg+xml" sizes="100x100" href="assets/img/icon.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
     <link rel="stylesheet" href="assets/css/app/login.css">
     <link rel="stylesheet" href="assets/css/app/objects.css">
     <link rel="stylesheet" href="assets/css/app/reports.css">
@@ -69,7 +68,7 @@
             <!-- Start: rooms-list --><residents-component/><!-- End: rooms-list -->
         </div>
         <div class="d-flex flex-column align-items-center" id="resident-page" v-if="currentPage=='resident'">
-            <!-- Start: view-room --><resident-component v-bind:resident="currentResident" v-bind:mode="currentResident.mode"/><!-- End: view-room -->
+            <!-- Start: view-room --><resident-component v-bind:resident="currentResident"/><!-- End: view-room -->
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

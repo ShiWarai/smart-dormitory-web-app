@@ -22,9 +22,6 @@ export const ResidentComponent = {
         }
     },
     methods: {
-        edit_resident(event) {
-            this.$parent.edit_resident(this.resident);
-        },
         async remove_resident(event) {
             const response = await remove("/residents/" + this.resident.studentId);
             
@@ -48,11 +45,7 @@ export const ResidentComponent = {
         <div class="container">
             <div class="row">
                 <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
-                    <h4 style="margin: 0px;">{{resident.fio}}</h4>
-                    <div class="d-flex flex-row">
-                        <button class="btn btn-primary btn-edit d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="edit_resident"><img src="edit.svg" width="24" height="24" style="filter: invert(100%);" /></button>
-                        <button class="btn btn-danger btn-delete d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_resident">X</button>
-                    </div>
+                    <h4 style="margin: 0px;">{{resident.fio}}</h4><button class="btn btn-danger btn-delete d-flex flex-grow-0" style="margin-left: 8px;" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_resident">X</button>
                 </div>
             </div>
             <div class="row">
@@ -72,11 +65,8 @@ export const ResidentsComponent = {
         'resident-component': ResidentComponent
     },
     methods: {
-        create_resident() {
-            this.$parent.showResident('create');
-        },
-        edit_resident(resident) {
-            this.$parent.showResident('edit', resident);
+        create_resident(event) {
+            this.$parent.showResident('new');
         },
         update_residents(event) {
             this.residents = null

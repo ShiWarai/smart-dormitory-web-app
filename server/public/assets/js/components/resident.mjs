@@ -1,16 +1,11 @@
 import {fetch, set, create} from '../api.mjs'
 
 export const ResidentComponent = {
-    props: ['resident', 'mode'],
+    props: ['resident'],
     data() {
         return { 
             roles: [],
             rooms: []
-        }
-    },
-    computed: {
-        modeName() {
-            return this.mode == 'edit' ? "Изменить" : "Создать";
         }
     },
     methods: {
@@ -26,34 +21,18 @@ export const ResidentComponent = {
             fetch("/rooms/").
                 then(response => (this.rooms = response.data));
         },
-        async create_resident(event) {
+        async create_resident(event) {            
             if(this.resident.roomId == null)
                 delete this.resident.roomId;
             
-            if(this.resident.password == null)
-                delete this.resident.password;
-            
-            if(this.mode == 'create') {
-                const response = await create("/residents/", this.resident);
-                
-                if(response.status == 201)
-                {
-                    alert("Создан новый житель!");
-                    this.$parent.changeWindow('resident', 'residents');
-                }
-                else
-                    alert("Ошибка");
-            } else {
-                const response = await set("/residents/" + this.resident.studentId, this.resident);
-                
-                if(response.status == 200)
-                {
-                    alert("Изменён житель!");
-                    this.$parent.changeWindow('resident', 'residents');
-                }
-                else
-                    alert("Ошибка");
+            const response = await create("/residents/", this.resident);
+            if(response.status == 201)
+            {
+                alert("Создан новый житель!");
+                this.$parent.changeWindow('resident', 'residents');
             }
+            else
+                alert("Ошибка");
         }
     },
     mounted () {
@@ -61,7 +40,7 @@ export const ResidentComponent = {
     },
     template:
     `
-    <h1 class="text-center form-heading">Житель</h1>
+    <h1 class="text-center">Житель</h1>
     <div style="min-width: 400px;">
         <form v-on:submit.prevent="create_resident">
             <div class="mb-3"><input class="form-control" type="text" name="fio" placeholder="ФИО" v-model="resident.fio" required /></div>
@@ -74,12 +53,8 @@ export const ResidentComponent = {
                     <option :value="room.id" v-for="room in this.rooms">{{room.name}}</option>
                 </select></div>
             <div class="mb-3"><input class="form-control" type="text" name="studentId" placeholder="Номер студенческого (7 цифр)" pattern="[0-9]{7}" v-model="resident.studentId" required /></div>
-            <div class="mb-3"><input v-if="this.mode == 'create'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" pattern="[0-9]{4}" v-model="resident.password" required/>
-            <input v-if="this.mode == 'edit'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" v-model="resident.password"/>
-            </div>
-            <div class="d-flex">
-                <button class="btn btn-primary d-block w-100" type="submit">{{this.modeName}}</button>
-            </div>
+            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" minlength="4" maxlength="4" pattern="[0-9]{4}" v-model="resident.password" required/></div>
+            <div class="d-flex"><button class="btn btn-primary d-block w-100" type="submit">Создать</button></div>
         </form>
     </div>
     `
