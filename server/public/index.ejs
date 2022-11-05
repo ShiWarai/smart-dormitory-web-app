@@ -56,6 +56,9 @@
         <div id="objects-page" v-if="currentPage=='objects'">
             <!-- Start: objects-list --><objects-component/><!-- End: objects-list -->
         </div>
+        <div class="d-flex flex-column align-items-center" id="object-page" v-if="currentPage=='object'">
+            <!-- Start: view-object --><object-component v-bind:object="currentObject" v-bind:mode="currentObject.mode"/><!-- End: view-object -->
+        </div>
         <div id="reports-page" v-if="currentPage=='reports'">
             <!-- Start: reports-list --><reports-component/><!-- End: reports-list -->
         </div>
@@ -76,6 +79,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/api.mjs" type="module"></script>
     <script src="assets/js/app.mjs" type="module"></script>
+    <script src="assets/js/components/object.mjs" type="module"></script>
     <script src="assets/js/components/objects.mjs" type="module"></script>
     <script src="assets/js/components/reports.mjs" type="module"></script>
     <script src="assets/js/components/resident.mjs" type="module"></script>

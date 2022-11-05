@@ -1,20 +1,7 @@
-/*
-export function fetch(endpoint) {
-    const response = ref()
-
-    const request = async () => {
-        const res = await fetch(url, options)
-        response.value = await res.json()
-    }
-
-    return {response, request}
-}
-*/
-
 export const options =   {
                 auth: {
-                    username: "",
-                    password: ""
+                    username: null,
+                    password: null
                 },
                 validateStatus: function (status) {
                     return status < 500;

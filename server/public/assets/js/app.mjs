@@ -2,6 +2,7 @@ import {fetch, set, options} from './api.mjs'
 import {RoomsComponent} from './components/rooms.mjs'
 import {RoomComponent} from './components/room.mjs'
 import {ObjectsComponent} from './components/objects.mjs'
+import {ObjectComponent} from './components/object.mjs'
 import {ReportsComponent} from './components/reports.mjs'
 import {ResidentsComponent} from './components/residents.mjs'
 import {ResidentComponent} from './components/resident.mjs'
@@ -18,6 +19,7 @@ const SmartDormitoryApp = {
             login_error: null,
             currentRoom: null,
             currentResident: {mode: null},
+            currentObject: {mode: null}
         }
     },
     methods: {
@@ -90,6 +92,19 @@ const SmartDormitoryApp = {
             
             this.currentResident.mode = mode;
             this.changeWindow(this.currentPage, 'resident');
+        },
+        showObject(mode, object) {
+            switch(mode) {
+                case 'create':
+                    this.currentObject = {id: null, name: null, description: null, typeId: null, roomId: null, cloudId: null, statusId: null};
+                    break;
+                case 'edit':
+                    this.currentObject = object;
+                    break
+            }
+            
+            this.currentObject.mode = mode;
+            this.changeWindow(this.currentPage, 'object');
         }
     },
     mounted () {
@@ -103,6 +118,7 @@ const SmartDormitoryApp = {
         RoomsComponent,
         RoomComponent,
         ObjectsComponent,
+        ObjectComponent,
         ResidentsComponent,
         ResidentComponent,
         ReportsComponent
