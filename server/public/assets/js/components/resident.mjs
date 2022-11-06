@@ -62,7 +62,7 @@ export const ResidentComponent = {
     template:
     `
     <h1 class="text-center form-heading">Житель</h1>
-    <div style="min-width: 400px;">
+    <div class="form-block">
         <form v-on:submit.prevent="create_resident">
             <div class="mb-3"><input class="form-control" type="text" name="fio" placeholder="ФИО" v-model="resident.fio" required /></div>
             <div class="mb-3"><input class="form-control" name="birthdate" placeholder="Дата рождения" type="date" v-model="resident.birthdate"/></div>

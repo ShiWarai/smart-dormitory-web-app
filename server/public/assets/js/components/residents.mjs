@@ -91,7 +91,7 @@ export const ResidentsComponent = {
                     <resident-component v-bind:resident="resident" v-for="resident in residents">   
                 </resident-component>
                 </ul>
-                <div class="btn-group btn-group-lg d-flex justify-content-around" role="group" style="margin: 10px;">
+                <div class="btn-group btn-group-lg d-flex justify-content-around toolbar" role="group">
                     <button class="btn btn-primary d-flex flex-grow-0" type="button" v-on:click="update_residents" style="border-radius: 8px;">Обновить</button><button class="btn btn-secondary d-flex flex-grow-0" type="button" v-on:click="create_resident" style="border-radius: 8px;">Создать</button
                 </div>`
 }

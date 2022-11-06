@@ -28,7 +28,7 @@ export const RoomComponent = {
     },
     template:
     `<h1 class="text-center form-heading">Комната</h1>
-    <div style="min-width: 400px;">
+    <div class="form-block">
         <form v-on:submit.prevent="create_room">
             <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Имя комнаты (номер)" v-model="room.name"/></div>
             <div class="mb-3"><select class="form-select" name="typeId" v-model="room.typeId" required>

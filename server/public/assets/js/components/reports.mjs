@@ -106,5 +106,5 @@ export const ReportsComponent = {
                 <report-component v-bind:reportProp="report" v-for="report in reports">   
                 </report-component>
                 </ul>
-                <div class="btn-group btn-group-lg d-flex justify-content-around" role="group" style="margin: 10px;"><button class="btn btn-primary d-flex flex-grow-0" type="button" v-on:click="update_reports" style="border-radius: 8px;">Обновить</button><button class="btn btn-danger d-flex flex-grow-0" type="button" v-on:click="remove_reports" style="border-radius: 8px;">Удалить всё</button></div>`
+                <div class="btn-group btn-group-lg d-flex justify-content-around toolbar" role="group"><button class="btn btn-primary d-flex flex-grow-0" type="button" v-on:click="update_reports" style="border-radius: 8px;">Обновить</button><button class="btn btn-danger d-flex flex-grow-0" type="button" v-on:click="remove_reports" style="border-radius: 8px;">Удалить всё</button></div>`
 }
