@@ -1,19 +1,27 @@
-.residents {
+.object-types {
   height: 100%;
   overflow-y: auto;
   background: var(--sd-back);
   padding-right: 8px;
 }
 
-.residents li {
+.object-types .schema-title {
+  margin-top: 8px;
+}
+
+.object-types textarea {
+  resize: none;
+}
+
+.object-types li {
   background: var(--sd-second);
 }
 
-#residents-page {
+#object-types-page {
   height: 100%;
 }
 
-#residents-page .btn-edit {
+#object-types-page .btn-edit {
   margin-left: 8px;
   padding: 8px;
   padding-right: 8px;
@@ -21,7 +29,7 @@
   padding-left: 8px;
 }
 
-#residents-page .btn-delete {
+#object-types-page .btn-delete {
   margin-left: 8px;
   padding-top: 8px;
 }

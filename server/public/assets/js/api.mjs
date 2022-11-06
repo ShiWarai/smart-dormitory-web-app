@@ -4,7 +4,7 @@ export const options =   {
                     password: null
                 },
                 validateStatus: function (status) {
-                    return status < 500;
+                    return status <= 500;
                 }
             }
 

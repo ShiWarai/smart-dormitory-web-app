@@ -3,9 +3,12 @@ import {RoomsComponent} from './components/rooms.mjs'
 import {RoomComponent} from './components/room.mjs'
 import {ObjectsComponent} from './components/objects.mjs'
 import {ObjectComponent} from './components/object.mjs'
+import {ObjectTypesComponent} from './components/object_types.mjs'
+import {ObjectTypeComponent} from './components/object_type.mjs'
 import {ReportsComponent} from './components/reports.mjs'
 import {ResidentsComponent} from './components/residents.mjs'
 import {ResidentComponent} from './components/resident.mjs'
+
 
 const SmartDormitoryApp = {
     data() {
@@ -19,7 +22,8 @@ const SmartDormitoryApp = {
             login_error: null,
             currentRoom: null,
             currentResident: {mode: null},
-            currentObject: {mode: null}
+            currentObject: {mode: null},
+            currentObjectType: {mode: null}
         }
     },
     methods: {
@@ -89,8 +93,8 @@ const SmartDormitoryApp = {
                     this.currentResident = resident;
                     break
             }
-            
             this.currentResident.mode = mode;
+            
             this.changeWindow(this.currentPage, 'resident');
         },
         showObject(mode, object) {
@@ -102,9 +106,22 @@ const SmartDormitoryApp = {
                     this.currentObject = object;
                     break
             }
-            
             this.currentObject.mode = mode;
+            
             this.changeWindow(this.currentPage, 'object');
+        },
+        showObjectType(mode, objectType) {
+            switch(mode) {
+                case 'create':
+                    this.currentObjectType = {id: null, name: null, schema: "{}", statusTypes: []};
+                    break;
+                case 'edit':
+                    this.currentObjectType = objectType;
+                    break
+            }
+            this.currentObjectType.mode = mode;
+            
+            this.changeWindow(this.currentPage, 'object-type');
         }
     },
     mounted () {
@@ -119,6 +136,8 @@ const SmartDormitoryApp = {
         RoomComponent,
         ObjectsComponent,
         ObjectComponent,
+        ObjectTypesComponent,
+        ObjectTypeComponent,
         ResidentsComponent,
         ResidentComponent,
         ReportsComponent

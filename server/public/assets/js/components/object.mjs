@@ -69,7 +69,7 @@ export const ObjectComponent = {
     template:
     `
     <h1 class="text-center form-heading">Объект</h1>
-    <div style="min-width: 400px;">
+    <div class="form-block">
         <form v-on:submit.prevent="create_object">
             <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Имя" v-model="object.name" required /></div>
             <div class="mb-3"><textarea class="form-control" name="description" v-model="object.description" placeholder="Описание"></textarea></div>

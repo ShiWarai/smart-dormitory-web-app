@@ -1,7 +1,7 @@
 .rooms {
   height: 100%;
   overflow-y: auto;
-  background: var(--sd-second);
+  background: var(--sd-back);
   padding-right: 8px;
 }
 
@@ -10,8 +10,6 @@
 }
 
 #rooms-page {
-  width: 90%;
-  height: 100%;
 }
 
 #rooms-page .btn-delete {
