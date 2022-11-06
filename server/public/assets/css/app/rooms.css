@@ -1,7 +1,7 @@
 .rooms {
   height: 100%;
   overflow-y: auto;
-  background: var(--sd-second);
+  background: var(--sd-back);
   padding-right: 8px;
 }
 

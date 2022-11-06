@@ -3,6 +3,7 @@ import {RoomsComponent} from './components/rooms.mjs'
 import {RoomComponent} from './components/room.mjs'
 import {ObjectsComponent} from './components/objects.mjs'
 import {ObjectComponent} from './components/object.mjs'
+import {ObjectTypesComponent} from './components/object_types.mjs'
 import {ReportsComponent} from './components/reports.mjs'
 import {ResidentsComponent} from './components/residents.mjs'
 import {ResidentComponent} from './components/resident.mjs'
@@ -119,6 +120,7 @@ const SmartDormitoryApp = {
         RoomComponent,
         ObjectsComponent,
         ObjectComponent,
+        ObjectTypesComponent,
         ResidentsComponent,
         ResidentComponent,
         ReportsComponent

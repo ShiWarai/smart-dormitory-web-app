@@ -1,5 +1,5 @@
 :root {
-  --sd-back: #101010;
+  --sd-back: #1E1E1E;
   --sd-primary: #625EFF;
   --sd-second: #282828;
   --sd-text-primary: #F2F2F2;
@@ -15,7 +15,14 @@ body * {
 }
 
 body select > option {
-  color: var(--sd-back);
+  color: var(--bs-black);
+}
+
+body textarea {
+  background-color: var(--sd-second);
+  border-color: var(--sd-back);
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .form-heading {
@@ -38,6 +45,11 @@ body .btn-secondary {
 
 body .btn-danger {
   background: var(--sd-btn-danger);
+}
+
+.nav-link {
+  /*font-size: small;*/
+  white-space: nowrap;
 }
 
 #app {
@@ -92,9 +104,12 @@ html {
 
 body {
   height: 100%;
-  background: var(--sd-second);
+  background: var(--sd-back);
   overflow: hidden;
   max-height: 100%;
   min-height: 100%;
+}
+
+.navbar-nav {
 }
 

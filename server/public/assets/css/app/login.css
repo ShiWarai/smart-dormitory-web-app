@@ -60,7 +60,7 @@
 }
 
 #login-page > .card {
-  background: var(--sd-second);
+  background: var(--sd-back);
   border-style: none;
   width: 100%;
   height: 100%;
