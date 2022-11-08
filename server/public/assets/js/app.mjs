@@ -20,7 +20,7 @@ const SmartDormitoryApp = {
             },
             authorized: false,
             login_error: null,
-            currentRoom: null,
+            currentRoom: {mode: null},
             currentResident: {mode: null},
             currentObject: {mode: null},
             currentObjectType: {mode: null}
@@ -75,12 +75,16 @@ const SmartDormitoryApp = {
                 this.currentPage = 'login';
             }
         },
-        showRoom(status, room) {
-            switch(status) {
+        showRoom(mode, room) {
+            switch(mode) {
                 case 'create':
                     this.currentRoom = {id: null, name: null, typeId: null, position: "{}"};
                     break;
+                case 'edit':
+                    this.currentRoom = room;
+                    break;
             }
+            this.currentRoom.mode = mode;
             
             this.changeWindow(this.currentPage, 'room');
         },
@@ -91,7 +95,7 @@ const SmartDormitoryApp = {
                     break;
                 case 'edit':
                     this.currentResident = resident;
-                    break
+                    break;
             }
             this.currentResident.mode = mode;
             
@@ -104,7 +108,7 @@ const SmartDormitoryApp = {
                     break;
                 case 'edit':
                     this.currentObject = object;
-                    break
+                    break;
             }
             this.currentObject.mode = mode;
             
@@ -117,7 +121,7 @@ const SmartDormitoryApp = {
                     break;
                 case 'edit':
                     this.currentObjectType = objectType;
-                    break
+                    break;
             }
             this.currentObjectType.mode = mode;
             
