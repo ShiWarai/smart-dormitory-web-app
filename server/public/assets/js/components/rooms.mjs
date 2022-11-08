@@ -10,6 +10,9 @@ export const RoomElementComponent = {
         }
     },
     methods: {
+        edit_room(event) {
+            this.$parent.edit_room(this.room);
+        },
         async remove_room(event) {
             if(this.residents.length == 0 && this.objects.length == 0) {
                 const response = await remove("/rooms/" + this.room.id);
@@ -46,9 +49,12 @@ export const RoomElementComponent = {
     `<li class="list-group-item d-flex flex-column">
     <div>
         <div class="row">
-            <div class="col-md-12 d-flex flex-row justify-content-between">
-                <h4>{{room.name}}</h4>
-                <button class="btn btn-danger btn-delete d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_room">X</button>
+            <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
+                <h4 style="margin: 0px;">{{room.name}}</h4>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary btn-edit d-flex flex-grow-0" type="button" v-on:click="edit_room"><img src="assets/img/edit.svg" width="24" height="24" style="filter: invert(100%);"/></button>
+                    <button class="btn btn-danger btn-delete d-flex flex-grow-0" type="button" data-bs-toggle="tooltip" title="Удалить" v-on:click="remove_room">X</button>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -76,6 +82,9 @@ export const RoomsComponent = {
             this.rooms = null
             fetch("/rooms/").
                 then(response => (this.rooms = response.data));
+        },
+        edit_room(room) {
+            this.$parent.showRoom('edit', room);
         },
         create_room(event) {
             this.$parent.showRoom('create');

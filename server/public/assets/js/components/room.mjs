@@ -1,10 +1,15 @@
 import {fetch, set, create} from '../api.mjs'
 
 export const RoomComponent = {
-    props: ['room'],
+    props: ['room', 'mode'],
     data() {
         return { 
             roomTypes: [],
+        }
+    },
+    computed: {
+        modeName() {
+            return this.mode == 'edit' ? "Изменить" : "Создать";
         }
     },
     methods: {
@@ -13,14 +18,28 @@ export const RoomComponent = {
                 then(response => (this.roomTypes = response.data));
         },
         async create_room(event) {
-            const response = await create("/rooms/", this.room);
-            if(response.status == 201)
-            {
-                alert("Создана новая комната!");
-                this.$parent.changeWindow('room', 'rooms');
+            
+            if(this.mode == 'create') {
+                const response = await create("/rooms/", this.room);
+                
+                if(response.status == 201)
+                {
+                    alert("Создана новая комната!");
+                    this.$parent.changeWindow('room', 'rooms');
+                }
+                else
+                    alert("Ошибка");
+            } else {
+                const response = await set("/rooms/" + this.room.id, this.room);
+                
+                if(response.status == 200)
+                {
+                    alert("Изменена комната!");
+                    this.$parent.changeWindow('room', 'rooms');
+                }
+                else
+                    alert("Ошибка");
             }
-            else
-                alert("Ошибка");
         }
     },
     mounted () {
@@ -35,7 +54,7 @@ export const RoomComponent = {
                     <option :value="roomType.id" v-for="roomType in this.roomTypes">{{roomType.name}}</option>
                 </select></div>
             <div class="mb-3"><textarea class="form-control" name="position" rows="6" placeholder="Положение" v-model="room.position"></textarea></div>
-            <div class="d-flex"><button class="btn btn-primary d-block w-100" type="submit">Создать</button></div>
+            <div class="d-flex"><button class="btn btn-primary d-block w-100" type="submit">{{this.modeName}}</button></div>
         </form>
     </div>`
 }
