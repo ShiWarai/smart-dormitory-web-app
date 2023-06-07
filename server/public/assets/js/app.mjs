@@ -78,7 +78,7 @@ const SmartDormitoryApp = {
         showRoom(mode, room) {
             switch(mode) {
                 case 'create':
-                    this.currentRoom = {id: null, name: null, typeId: null, position: "{}"};
+                    this.currentRoom = {id: null, name: null, typeId: null, position: '{"floor":1,"building":"A"}'};
                     break;
                 case 'edit':
                     this.currentRoom = room;
@@ -117,7 +117,7 @@ const SmartDormitoryApp = {
         showObjectType(mode, objectType) {
             switch(mode) {
                 case 'create':
-                    this.currentObjectType = {id: null, name: null, schema: "{}", statusTypes: []};
+                    this.currentObjectType = {id: null, name: null, schema: '{"reservationsLimit": 0, "beginStatusType": 100, "endStatusType": 200}', statusTypes: []};
                     break;
                 case 'edit':
                     this.currentObjectType = objectType;

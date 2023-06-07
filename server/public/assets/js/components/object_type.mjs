@@ -21,27 +21,30 @@ export const ObjectTypeComponent = {
                 then(response => (this.statuses = response.data));
         },
         async create_object_type(event) {
-            
-            if(this.mode == 'create') {
-                const response = await create("/object_types/", this.object_type);
-                
-                if(response.status == 201)
-                {
-                    alert("Создан новый тип объекта!");
-                    this.$parent.changeWindow('object-type', 'object-types');
+            if(this.object_type.statusTypes.length == 0)
+                alert("Укажите хотя бы одно доступное состояние");
+            else {
+                if(this.mode == 'create') {
+                    const response = await create("/object_types/", this.object_type);
+
+                    if(response.status == 201)
+                    {
+                        alert("Создан новый тип объекта!");
+                        this.$parent.changeWindow('object-type', 'object-types');
+                    }
+                    else
+                        alert("Ошибка");
+                } else {
+                    const response = await set("/object_types/" + this.object_type.id, this.object_type);
+
+                    if(response.status == 200)
+                    {
+                        alert("Изменён тип объекта!");
+                        this.$parent.changeWindow('object-type', 'object-types');
+                    }
+                    else
+                        alert("Ошибка");
                 }
-                else
-                    alert("Ошибка");
-            } else {
-                const response = await set("/object_types/" + this.object_type.id, this.object_type);
-                
-                if(response.status == 200)
-                {
-                    alert("Изменён тип объекта!");
-                    this.$parent.changeWindow('object-type', 'object-types');
-                }
-                else
-                    alert("Ошибка");
             }
         }
     },

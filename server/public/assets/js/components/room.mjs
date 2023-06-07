@@ -50,11 +50,17 @@ export const RoomComponent = {
     <div class="form-block">
         <form v-on:submit.prevent="create_room">
             <div class="mb-3">Имя комнаты<input class="form-control" type="text" name="name" placeholder="Имя комнаты (номер)" v-model="room.name"/></div>
-            <div class="mb-3">Тип комнаты<select class="form-select" name="typeId" v-model="room.typeId" required>
+            <div class="mb-3">Тип комнаты
+                <select class="form-select" name="typeId" v-model="room.typeId" required>
                     <option :value="roomType.id" v-for="roomType in this.roomTypes">{{roomType.name}}</option>
-                </select></div>
-            <div class="mb-3">Положение<textarea class="form-control" name="position" rows="6" placeholder="Положение" v-model="room.position"></textarea></div>
-            <div class="d-flex"><button class="btn btn-primary d-block w-100" type="submit">{{this.modeName}}</button></div>
+                </select>
+            </div>
+            <div class="mb-3">Положение
+                <textarea class="form-control" name="position" rows="6" placeholder="Положение" v-model="room.position"></textarea>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-primary d-block w-100" type="submit">{{this.modeName}}</button>
+            </div>
         </form>
     </div>`
 }

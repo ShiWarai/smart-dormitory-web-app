@@ -73,7 +73,7 @@ export const ResidentComponent = {
                     <option value="null" selected>-</option>
                     <option :value="room.id" v-for="room in this.rooms">{{room.name}}</option>
                 </select></div>
-            <div class="mb-3">Логин<input class="form-control" type="text" name="studentId" placeholder="Номер студенческого (7 цифр)" pattern="[0-9]{7}" v-model="resident.studentId" required /></div>
+            <div class="mb-3">Номер студенческого<input class="form-control" type="text" name="studentId" placeholder="Номер студенческого (7 цифр)" pattern="[0-9]{7}" v-model="resident.studentId" required /></div>
             <div class="mb-3">Пароль<input v-if="this.mode == 'create'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" pattern="[0-9]{4}" v-model="resident.password" required/>
             <input v-if="this.mode == 'edit'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" v-model="resident.password"/>
             </div>
