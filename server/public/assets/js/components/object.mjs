@@ -71,18 +71,34 @@ export const ObjectComponent = {
     <h1 class="text-center form-heading">Объект</h1>
     <div class="form-block">
         <form v-on:submit.prevent="create_object">
-            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Имя" v-model="object.name" required /></div>
-            <div class="mb-3"><textarea class="form-control" name="description" v-model="object.description" placeholder="Описание"></textarea></div>
-            <div class="mb-3"><select class="form-select" name="typeId" v-model="object.typeId" required>
+            <div class="mb-3">
+                Имя объекта
+                <input class="form-control" type="text" name="name" placeholder="Имя" v-model="object.name" required />
+            </div>
+            <div class="mb-3">
+                Описание
+                <textarea class="form-control" name="description" v-model="object.description" placeholder="Описание"></textarea>
+            </div>
+            <div class="mb-3">
+                Тип объекта
+                <select class="form-select" name="typeId" v-model="object.typeId" required>
                     <option :value="type.id" v-for="type in this.types">{{type.name}}</option>
                 </select></div>
-            <div class="mb-3"><select class="form-select" name="roomId" v-model="object.roomId" required>
-                    <option :value="room.id" v-for="room in this.rooms">{{room.name}}</option>
-                </select></div>
-            <div class="mb-3"><select class="form-select" name="statusId" v-model="object.statusId" required>
+            <div class="mb-3">
+                Комната
+                <select class="form-select" name="roomId" v-model="object.roomId" required>
+                <option :value="room.id" v-for="room in this.rooms">{{room.name}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                Изначальный статус объекта
+                <select class="form-select" name="statusId" v-model="object.statusId" required>
                     <option :value="status.id" v-for="status in this.statuses">{{status.description}}</option>
-                </select></div>
-            <div class="mb-3"><input class="form-control" type="text" name="cloudId" placeholder="ID в облаке Smarthings" v-model="object.cloudId"/></div>
+                </select>
+            </div>
+            <div class="mb-3">
+                ID в облаке Smarthings
+                <input class="form-control" type="text" name="cloudId" placeholder="ID в облаке Smarthings" v-model="object.cloudId"/></div>
             <div class="d-flex">
                 <button class="btn btn-primary d-block w-100" type="submit">{{this.modeName}}</button>
             </div>

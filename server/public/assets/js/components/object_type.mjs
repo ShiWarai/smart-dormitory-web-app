@@ -54,12 +54,15 @@ export const ObjectTypeComponent = {
     <div class="form-block">
         <form v-on:submit.prevent="create_object_type">
             <div class="mb-3">
+                Имя типа
                 <input class="form-control" type="text" placeholder="Имя" v-model="object_type.name" required/>
             </div>
             <div class="mb-3">
+                Схема поведения
                 <textarea class="form-control" rows="6" placeholder="Схема поведения" v-model="object_type.schema"></textarea>
             </div>
             <div class="mb-3">
+                Доступные типы состояния
                 <select class="form-select" v-model="object_type.statusTypes" multiple>
                     <option :value="status.id" v-for="status in this.statuses">{{status.description}}</option>
                 </select>
