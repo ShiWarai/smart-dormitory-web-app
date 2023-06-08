@@ -64,17 +64,17 @@ export const ResidentComponent = {
     <h1 class="text-center form-heading">Житель</h1>
     <div class="form-block">
         <form v-on:submit.prevent="create_resident">
-            <div class="mb-3"><input class="form-control" type="text" name="fio" placeholder="ФИО" v-model="resident.fio" required /></div>
-            <div class="mb-3"><input class="form-control" name="birthdate" placeholder="Дата рождения" type="date" v-model="resident.birthdate"/></div>
-            <div class="mb-3"><select class="form-select" name="roleId" v-model="resident.roleId" required>
+            <div class="mb-3">ФИО<input class="form-control" type="text" name="fio" placeholder="ФИО" v-model="resident.fio" required /></div>
+            <div class="mb-3">Дата рождения<input class="form-control" name="birthdate" placeholder="Дата рождения" type="date" v-model="resident.birthdate"/></div>
+            <div class="mb-3">Роль<select class="form-select" name="roleId" v-model="resident.roleId" required>
                     <option :value="role.id" v-for="role in this.roles">{{role.name}}</option>
                 </select></div>
-            <div class="mb-3"><select class="form-select" name="roomId" v-model="resident.roomId" required>
+            <div class="mb-3">Комната<select class="form-select" name="roomId" v-model="resident.roomId" required>
                     <option value="null" selected>-</option>
                     <option :value="room.id" v-for="room in this.rooms">{{room.name}}</option>
                 </select></div>
-            <div class="mb-3"><input class="form-control" type="text" name="studentId" placeholder="Номер студенческого (7 цифр)" pattern="[0-9]{7}" v-model="resident.studentId" required /></div>
-            <div class="mb-3"><input v-if="this.mode == 'create'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" pattern="[0-9]{4}" v-model="resident.password" required/>
+            <div class="mb-3">Номер студенческого<input class="form-control" type="text" name="studentId" placeholder="Номер студенческого (7 цифр)" pattern="[0-9]{7}" v-model="resident.studentId" required /></div>
+            <div class="mb-3">Пароль<input v-if="this.mode == 'create'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" pattern="[0-9]{4}" v-model="resident.password" required/>
             <input v-if="this.mode == 'edit'" class="form-control" type="password" name="password" placeholder="Пароль (4 цифры)" v-model="resident.password"/>
             </div>
             <div class="d-flex">
